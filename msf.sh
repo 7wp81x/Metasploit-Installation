@@ -6,7 +6,7 @@ echo "OK MAKE SURE THAT THE DIRECTORY EXIST"
 cwd=$(pwd)
 msfvar=6.0.33
 msfpath="$instcon"
-
+pkg uninstall ruby
 apt update && apt upgrade
 # Temporary 
 apt install -y libiconv zlib autoconf bison clang coreutils curl findutils git apr apr-util libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config wget make libgrpc termux-tools ncurses-utils ncurses unzip zip tar termux-elf-cleaner
