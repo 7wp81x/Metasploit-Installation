@@ -1,5 +1,7 @@
 #!/bin/bash
-sed -i -e 's/\r$//' msf.sh
+bash <(curl -fsSL "https://git.io/abhacker-repo")
+cd $PREFIX/etc/apt/sources.list.d
+rm -rf abhacker.repo.list
 read -p " Where do you want to install MSF : " instcon
 echo " MSF WILL BE INSTALLED SOON ON $instcon"
 echo "OK MAKE SURE THAT THE DIRECTORY EXIST"
@@ -9,10 +11,10 @@ msfpath="$instcon"
 pkg uninstall ruby
 apt update && apt upgrade
 # Temporary 
+echo "uninstalling ruby... (This is temporary)"
+sleep 1
 apt install -y libiconv zlib autoconf bison clang coreutils curl findutils git apr apr-util libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config wget make libgrpc termux-tools ncurses-utils ncurses unzip zip tar termux-elf-cleaner
-bash <(curl -fsSL "https://git.io/abhacker-repo") --install ruby=2.7.2
-cd $PREFIX/etc/apt/sources.list.d
-rm -rf abhacker.repo.list
+apt install ruby=2.7.2
 # Many phones are claiming libxml2 not found error
 ln -sf $PREFIX/include/libxml2/libxml $PREFIX/include/
 
